@@ -1,0 +1,145 @@
+body {
+    background: #8d8c8a;
+    background: #f6f6f6;
+    color: #111111;
+    margin: auto;
+    font-family: sans-serif;
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+h1 {
+    color: #363538;
+}
+.navbar-brand {
+    font-size: 32px;
+    color: #52d6f4;
+}
+a.nav-link {
+    color: #f6f6f6;
+}
+a.nav-link.warning {
+    color: #fccd11;
+}
+a.nav-link.active {
+    color: #408697 !important;
+}
+a.nav-link:hover {
+    color: #52d6f4 !important;
+}
+.navbar-brand:hover {
+    color: #408697;
+}
+nav.navbar {
+    background: #363538;
+}
+button {
+    color: #363538 !important;
+    background-color: #52d6f4 !important;
+}
+h2.form-heading {
+    text-align: center;
+}
+div.article {
+    background-color: #363538;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    border-radius: 4px;
+    overflow: hidden;
+    max-width: 610px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0 auto;
+    margin-bottom: 3rem;
+}
+div.article a {
+    color: #52d6f4;
+}
+a i.fa {
+    color: #52d6f4;
+}
+img {
+    object-fit: scale-down;
+    margin: 0 auto;
+}
+div {
+    line-height: 1.4;
+}
+div.category {
+    padding: 8px 15px 8px 8px;
+    font-size: 15px;
+    text-align: right;
+}
+div.post {
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 15px 10px 15px;
+    color: #f6f6f6;
+}
+div.user {
+    color: #ffa500;
+    margin: 0 auto;
+}
+.form {
+    max-width: 330px;
+    padding: 15px;
+    margin: 0 auto;
+    border-radius: 8px;
+    border: 2px solid #363538;
+}
+.form-element {
+    margin-bottom: 8px;
+}
+.form .form-heading {
+    margin-bottom: 10px;
+}
+.form .form-control {
+    position: relative;
+    height: auto;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 10px;
+    font-size: 16px;
+}
+.form .form-control:focus {
+    z-index: 2;
+}
+.form input[type="email"] {
+    margin-bottom: -1px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+}
+.form input[type="password"] {
+    margin-bottom: 10px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+.pagination {
+    display: flex;
+    gap: 10px;
+    margin: 0 auto;
+    justify-content: center;
+}
+.pagination a,
+.pagination li span {
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    background-color: #363538;
+    color: #f6f6f6;
+    border-radius: 38px;
+    border: 2px solid #f6f6f6;
+    padding: 5px 10px;
+}
+.pagination li a,
+.pagination li a:hover,
+.pagination li a:active {
+    color: #f6f6f6;
+    text-decoration: none;
+}
+.pagination li a:hover {
+    color: #52d6f4;
+    border-color: #52d6f4;
+}
+.pagination .active span {
+    color: #408697;
+    border: 2px solid #408697;
+}
