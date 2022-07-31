@@ -6,12 +6,17 @@
             <x-form.label name="image" />
 
             <input class="" type="file" name="images[]" id="images" multiple class="form-control" accept="image/*" required>
-            @if ($errors->has('files'))
-                @foreach ($errors->get('files') as $error)
-                <span class="invalid-feedback" role="alert">
-                    <strong>{{ $error }}</strong>
-                </span>
-                @endforeach
+            
+            @if(count($errors) > 0)
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="alert alert-danger">
+                            @foreach ($errors->all() as $error)
+                                <div>{{ $error }}</div>
+                            @endforeach
+                        </div>
+                    </div>
+                </div>
             @endif
         </div>
         
