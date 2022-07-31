@@ -3,7 +3,7 @@
         @csrf
 
         <x-form.label name="image" />
-        <img src="{{ asset('public/images/'.$post->slug.'.jpg') }}" 
+        <img src="{{ url('public/images/'.$post->slug.'.jpg')}} " 
             class="img-fluid" 
             alt="image" 
             title="image">

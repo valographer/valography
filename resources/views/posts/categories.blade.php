@@ -1,7 +1,7 @@
 <x-layout>
     @foreach ($posts as $post)
         <div class="article">
-            <img src="{{ asset('public/images/'.$post->slug.'.jpg') }}" 
+            <img src="{{ url('public/images/'.$post->slug.'.jpg')}} " 
                 class="img-fluid" 
                 alt="image"
                 title="image">
