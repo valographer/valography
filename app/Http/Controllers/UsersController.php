@@ -43,9 +43,9 @@ class UsersController extends Controller
 
     public function editUser(Request $request){
         $attributes = $request->validate([
-            'name' => 'required|min:2|max:20',
+            'name' => 'required|min:2|max:50',
             'info' => 'sometimes|min:2|max:255',
-            'email' => 'required|email|min:6|max:20',
+            'email' => 'required|email|max:50',
             'admin' => 'nullable',
             'kd' => 'nullable'
         ]);

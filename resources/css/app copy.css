@@ -155,30 +155,6 @@ li.item-container {
 li.item-container:nth-child(odd) {
     background-color: #e6e6e6;
 }
-@media screen and (max-width: 736px) {
-    .collection-container {
-        display: grid;
-        grid-template-columns: 1fr;
-    }
-    .item-container {
-        margin-bottom: 8px;
-        padding: 8px;
-    }
-    .attribute {
-        display: grid;
-        grid-template-columns: minmax(6em, 20%) 1fr;
-        margin-bottom: 8px;
-    }
-    .attribute a {
-        width: 16px;
-    }
-    .attribute::before {
-        content: attr(data-name);
-    }
-    .collection-container > li:first-child {
-        display: none;
-    }
-}
 @media screen and (min-width: 737px) {
     .collection-container > li:first-child {
         border-bottom: solid 2px #8d8c8a;
@@ -197,5 +173,26 @@ li.item-container:nth-child(odd) {
     }
     .collection {
         justify-items: stretch;
+    }
+}
+@media screen and (max-width: 736px) {
+    .collection-container {
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+    .item-container {
+        margin-bottom: 8px;
+        padding: 8px;
+    }
+    .attribute {
+        display: grid;
+        grid-template-columns: minmax(6em, 20%) 1fr;
+        margin-bottom: 8px;
+    }
+    .attribute::before {
+        content: attr(data-name);
+    }
+    .collection-container > li:first-child {
+        display: none;
     }
 }

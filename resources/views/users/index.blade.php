@@ -1,25 +1,25 @@
 <x-layout>
     <h2 class="form-heading">Users</h2>
-    <table class="table table-striped table-bordered">
-        <tr>
-            <th>Name</th>
-            <th>E-Mail</th>
-            <th>Info</th>
-            <th>Categories</th>
-            <th>Admin</th>
-            <th>Edit</th>
-            <th>Delete</th>
-        </tr>
+    <ol class="collection collection-container">
+        <li class="item item-container users">
+            <div class="attribute" data-name="Name">Name</div>
+            <div class="attribute" data-name="E-Mail">E-Mail</div>
+            <div class="attribute" data-name="Info">Info</div>
+            <div class="attribute" data-name="Categories">Categories</div>
+            <div class="attribute" data-name="Admin">Admin</div>
+            <div class="attribute" data-name="Edit">Edit</div>
+            <div class="attribute" data-name="Delete">Delete</div>
+        </li>
         @foreach ($users as $user)
-        <tr>
-            <td>{{$user->name}}</td>
-            <td>{{$user->email}}</td>
-            <td>{{$user->info}}</td>
-            <td>{{($user->kd)?'All':'Restricted'}}</td>
-            <td>{{($user->admin)?'Yes':'No'}}</td>
-            <td><a href="/admin/users/edit?id={{$user->id}}"><i class="fa fa-pen"></i></a></td>
-            <td><a href="/admin/users/delete?id={{$user->id}}"><i class="fa fa-trash"></i></a></td>
-        </tr>
+            <li class="item item-container users">
+                <div class="attribute" data-name="Name">{{$user->name}}</div>
+                <div class="attribute" data-name="E-Mail">{{$user->email}}</div>
+                <div class="attribute" data-name="Info">{{$user->info}}</div>
+                <div class="attribute" data-name="Categories">{{($user->kd)?'All':'Restricted'}}</div>
+                <div class="attribute" data-name="Admin">{{($user->admin)?'Yes':'No'}}</div>
+                <div class="attribute" data-name="Edit"><a href="/admin/users/edit?id={{$user->id}}"><i class="fa fa-pen"></i></a></div>
+                <div class="attribute" data-name="Delete"><a href="/admin/users/delete?id={{$user->id}}"><i class="fa fa-trash"></i></a></div>
+            </li>
         @endforeach
-    </table>
+    </ol>
 </x-layout>
