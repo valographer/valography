@@ -22,10 +22,10 @@ class UsersController extends Controller
 
     public function store(){
         $attributes = request()->validate([
-            'name' => 'required|min:2|max:20',
+            'name' => 'required|min:2|max:50',
             'info' => 'required|min:2|max:255',
-            'email' => 'required|email|min:6|max:20|unique:users,email',
-            'password' => 'required|min:8|max:20'
+            'email' => 'required|email|min:5|max:50|unique:users,email',
+            'password' => 'required|min:8|max:50'
         ]);
         $attributes['password'] = Hash::make($attributes['password']);
         $user = User::create($attributes);
