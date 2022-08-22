@@ -44,6 +44,6 @@ class CategoryController extends Controller
         Category::where('id', $request->id)
         ->update(['slug' => $request->slug,
                     'name' => $request->name]);;
-        return redirect()->to('/admin/categories')->with('success', 'Category edited successfully');
+        return redirect()->to('/admin/categories')->with('success', 'Category edited.');
     }
 }

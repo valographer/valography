@@ -66,7 +66,7 @@ class PostController extends Controller
             }
         }
   
-        return back()->with('success', 'Images uploaded');
+        return back()->with('success', 'Image(s) uploaded.');
     }
 
     public function editPost(Request $request){

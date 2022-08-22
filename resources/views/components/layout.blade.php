@@ -22,7 +22,7 @@
         {{$slot}}
         
         @if (session()->has('success'))
-            <div class="">
+            <div class="success">
                 <p>{{ session('success') }}</p>
             </div>
         @endif

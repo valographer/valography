@@ -8,8 +8,20 @@ use Illuminate\Support\Facades\Hash;
 
 class UsersController extends Controller
 {
+    public function checkAdmin(){
+        return (auth()->user()->admin_main) ? true : false;
+    }
+
     public function index(){
         $users = User::first('id')->get();
+
+        //user e-mail für alle außer main admin unkenntlich machen
+        if(!$this->checkAdmin()){
+            foreach($users as $user){
+                $user['name'] = "*******";
+                $user['email'] = "*******";
+            }
+        }
 
         return view('users.index', [
             'users' => $users
@@ -36,6 +48,12 @@ class UsersController extends Controller
     public function edit(Request $request){
         $user = User::where('id', $request['id'])->firstOrFail();
         
+        //user e-mail für alle außer main admin unkenntlich machen
+        if(!$this->checkAdmin()){
+            $user['name'] = "*******";
+            $user['email'] = "*******";
+        }
+
         return view('users.edit', [
             'user' => $user
         ]);
@@ -53,13 +71,17 @@ class UsersController extends Controller
         $attributes['admin'] = (isset($attributes['admin']))?1:0;
         $attributes['kd'] = (isset($attributes['kd']))?1:0;
 
-        User::where('id', $request->id)
-        ->update(['name' => $attributes['name'],
-                    'info' => $attributes['info'],
-                    'email' => $attributes['email'],
-                    'admin' => $attributes['admin'],
-                    'kd' => $attributes['kd']]);
+        if($this->checkAdmin()){
+            User::where('id', $request->id)
+            ->update(['name' => $attributes['name'],
+                        'info' => $attributes['info'],
+                        'email' => $attributes['email'],
+                        'admin' => $attributes['admin'],
+                        'kd' => $attributes['kd']]);
 
-        return redirect()->to('/admin/users')->with('success', 'User edited successfully');
+            return redirect()->to('/admin/users')->with('success', 'User edited.');
+        }else{
+            return redirect()->back()->withErrors(['Only Main-Admin is allowed to do this.']);
+        }
     }
 }
