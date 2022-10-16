@@ -19,18 +19,18 @@ Route::group(['middleware' => 'guest'], function(){
 Route::group(['middleware' => 'auth'], function(){
     Route::get('/', [PostController::class, 'index'])->name('home');
     Route::get('posts/{category:slug}', [PostController::class, 'showCategory'])->name('category');
-        
+
     Route::get('logout', [SessionsController::class, 'destroy'])->name('logout');
 
     // Admins dürfen Kategorien & Posts erstellen, neue Benutzer hinzufügen etc
     Route::group(['middleware' => 'admin'], function(){
         Route::get('admin/posts/create', [PostController::class, 'create']);
         Route::post('admin/posts/create', [PostController::class, 'store']);
-        
+
         Route::get('admin/posts/edit', [PostController::class, 'edit']);
         Route::post('admin/posts/edit', [PostController::class, 'editPost']);
         Route::post('admin/posts/delete', [PostController::class, 'deletePost']);
-        
+
         Route::get('admin/categories', [CategoryController::class, 'index']);
         Route::get('admin/categories/create', [CategoryController::class, 'create']);
         Route::post('admin/categories/create', [CategoryController::class, 'store']);
@@ -39,7 +39,7 @@ Route::group(['middleware' => 'auth'], function(){
 
         Route::get('admin/users', [UsersController::class, 'index']);
         Route::get('admin/users/register', [UsersController::class, 'create'])->name('register');
-        Route::post('admin/users/register', [UsersController::class, 'store']);
+        Route::post('admin/users/register', [UsersController::class, 'save']);
         Route::get('admin/users/edit', [UsersController::class, 'edit']);
         Route::post('admin/users/edit', [UsersController::class, 'editUser']);
         Route::post('admin/users/delete', [UsersController::class, 'deleteUser']);

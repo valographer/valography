@@ -15,7 +15,7 @@ class UsersController extends Controller
     public function index(){
         $users = User::first('id')->get();
 
-        //user e-mail für alle außer main admin unkenntlich machen
+        //user name und e-mail für alle außer main admin unkenntlich machen
         if(!$this->checkAdmin()){
             foreach($users as $user){
                 $user['name'] = "*******";
@@ -32,7 +32,7 @@ class UsersController extends Controller
         return view('users.create');
     }
 
-    public function store(){
+    public function save(){
         $attributes = request()->validate([
             'name' => 'required|min:2|max:50',
             'info' => 'required|min:2|max:255',
@@ -47,7 +47,7 @@ class UsersController extends Controller
 
     public function edit(Request $request){
         $user = User::where('id', $request['id'])->firstOrFail();
-        
+
         //user e-mail für alle außer main admin unkenntlich machen
         if(!$this->checkAdmin()){
             $user['name'] = "*******";
@@ -67,7 +67,7 @@ class UsersController extends Controller
             'admin' => 'nullable',
             'kd' => 'nullable'
         ]);
-        
+
         $attributes['admin'] = (isset($attributes['admin']))?1:0;
         $attributes['kd'] = (isset($attributes['kd']))?1:0;
 

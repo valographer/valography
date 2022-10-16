@@ -3,8 +3,10 @@
 /public/hot
 /public/images
 /public/storage
+/public/.htaccess
 /storage/*.key
 /vendor
+.htaccess
 .env
 .env.backup
 .phpunit.result.cache
@@ -14,3 +16,4 @@ npm-debug.log
 yarn-error.log
 /.idea
 /.vscode
+_ide_helper.php
